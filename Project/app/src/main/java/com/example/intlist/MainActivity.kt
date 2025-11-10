@@ -39,11 +39,9 @@ class MainActivity : AppCompatActivity() {
         rbPerfect = findViewById(R.id.rbPerfect)
         rbSquare = findViewById(R.id.rbSquare)
         rbFibo = findViewById(R.id.rbFibo)
-
-        // chọn mặc định Số lẻ
+        
         radioGroup.check(R.id.rbOdd)
 
-        // Thêm click listener để có thể bỏ tick
         setupRadioButton(rbOdd)
         setupRadioButton(rbEven)
         setupRadioButton(rbPrime)
@@ -51,28 +49,23 @@ class MainActivity : AppCompatActivity() {
         setupRadioButton(rbSquare)
         setupRadioButton(rbFibo)
 
-        // cập nhật khi người dùng gõ số
         edtNumber.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) { updateList() }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
-        // cập nhật khi thay đổi lựa chọn
         radioGroup.setOnCheckedChangeListener { _, _ -> updateList() }
 
-        // cập nhật lần đầu
         updateList()
     }
 
     private fun setupRadioButton(rb: RadioButton) {
         rb.setOnClickListener {
             if (radioGroup.checkedRadioButtonId == rb.id) {
-                // nếu đang chọn nút này, bỏ chọn
                 radioGroup.clearCheck()
-                updateList() // cập nhật danh sách
+                updateList()
             } else {
-                // chọn nút này
                 radioGroup.check(rb.id)
             }
         }
@@ -126,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             R.id.rbPerfect -> isPerfect(x)
             R.id.rbSquare -> isSquare(x)
             R.id.rbFibo -> isFibo(x)
-            else -> true // nếu không chọn gì => hiển thị tất cả
+            else -> true
         }
     }
 

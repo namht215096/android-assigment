@@ -81,7 +81,6 @@
             </LinearLayout>
         </RadioGroup>
 
-        <!-- Nếu không có số -->
         <TextView
             android:id="@+id/txtEmpty"
             android:layout_width="wrap_content"
@@ -91,7 +90,6 @@
             android:paddingTop="10dp"
             android:visibility="gone" />
 
-        <!-- Danh sách số -->
         <LinearLayout
             android:id="@+id/listNumbers"
             android:orientation="vertical"
